@@ -35,6 +35,7 @@ function CharacterList() {
               </div>
             );
           })}
+          <Pagination page={page} setpage={setpage} />
         </div>
       )}
     </div>

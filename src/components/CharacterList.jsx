@@ -1,27 +1,6 @@
 import { useEffect, useState } from "react";
 import Character from "./Character";
-
-function NavPage(props) {
-  return (
-    <header className="d-flex justify-content-between align-items-center">
-      <p><strong>Page: {props.page}</strong></p>
-      <div>
-        <button
-          className="btn btn-primary btn-sm m-3"
-          onClick={() => props.setpage(props.page - 1)}
-        >
-          Page {props.page - 1}
-        </button>
-        <button
-          className="btn btn-primary btn-sm"
-          onClick={() => props.setpage(props.page + 1)}
-        >
-          Page {props.page + 1}
-        </button>
-      </div>
-    </header>
-  );
-}
+import Pagination from "./Pagination";
 
 function CharacterList() {
   const [characters, setcharacters] = useState([]);
@@ -43,7 +22,7 @@ function CharacterList() {
 
   return (
     <div className="container">
-      <NavPage page={page} setpage={setpage} />
+      <Pagination page={page} setpage={setpage} />
 
       {loading ? (
         <h1>Loading...</h1>
@@ -58,7 +37,6 @@ function CharacterList() {
           })}
         </div>
       )}
-      <NavPage page={page} setpage={setpage} />
     </div>
   );
 }
